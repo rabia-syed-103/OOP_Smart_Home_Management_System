@@ -30,7 +30,7 @@ void Lock::turnOn()
 	if (pass.is_equal(this->password))
 		this->turnOn();
 	else
-		cout << "\n~UnAuthorized!";
+		throw MyStr("\n~Unauthorized Access!");
 }
 
 void Lock::turnOff()
@@ -41,7 +41,8 @@ void Lock::turnOff()
 	if (pass.is_equal(this->password))
 		this->turnOff();
 	else
-		cout << "\n~UnAuthorized!";
+		throw MyStr("\n~Unauthorized Access!");
+
 
 }
 void Lock::SetSetting()
