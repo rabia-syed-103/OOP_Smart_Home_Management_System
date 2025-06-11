@@ -1,17 +1,29 @@
-#ifndef ADULTUSER_H
-#define ADULTUSER_H
-#include <iostream>
-#include "MyStr.h"
-#include "User.h"
-class AdultUser:public User
+#include "AdultUser.h"
+
+AdultUser::AdultUser()
 {
-	
-public:
-	AdultUser();
-	AdultUser(MyStr _name);
-	AdultUser(const User& other);
-	AdultUser& operator=(const User& other);
-	bool CanChangeSetting()override;
-	bool CanToggleDevice()override;
-};
-#endif // !ADULTUSER_H
+}
+AdultUser::AdultUser(MyStr _name) :User(_name)
+{
+
+}
+AdultUser::AdultUser(const User& other) :User(other)
+{}
+AdultUser& AdultUser::operator=(const User& other)
+{
+	if (this != &other)
+	{
+		User:: operator=(other);
+	}
+	return *this;
+}
+
+bool AdultUser::CanChangeSetting()
+{
+	return true;
+}
+
+bool AdultUser::CanToggleDevice()
+{
+	return true;
+}
