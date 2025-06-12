@@ -3,7 +3,7 @@
 Fan::Fan() :speed(0)
 {
 }
-Fan::Fan(MyStr _name, bool _isON) :Device(_name, _isON), speed(0)
+Fan::Fan(int _id,MyStr _name, bool _isON) :Device(_id,_name, _isON), speed(0)
 {
 
 }
