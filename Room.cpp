@@ -3,14 +3,14 @@
 Room::Room()
 {
 }
-Room::Room(MyStr _name, MyVector <Device*> _device):name(_name)
+Room::Room(int _id,MyStr _name, MyVector <Device*> _device):name(_name),id(_id)
 {
 	for (int i = 0; i < _device.size(); i++)
 	{
 		this->devices.push(_device[i]);
 	}
 }
-Room::Room(MyStr _name):name(_name)
+Room::Room(int _id,MyStr _name):name(_name),id(_id)
 {}
 
 void Room::AddDevice(Device* dev)
@@ -23,9 +23,9 @@ void Room::RemoveDevice(Device* dev)
 	this->devices.delete_at(i);
 
 }
-bool Room::ToggleDevice(MyStr devicename, bool toggle)
+bool Room::ToggleDevice(int deviceid, bool toggle)
 {
-	int i = TempleFind(devicename, this->devices);
+	int i = TempleFind(deviceid, this->devices);
 	if (toggle == 1)
 	{
 		this->devices[i]->turnOn();
@@ -39,7 +39,7 @@ bool Room::ToggleDevice(MyStr devicename, bool toggle)
 	return 0;
 
 }
-bool Room::UpdateDeviceSetting(MyStr devicename)
+bool Room::UpdateDeviceSetting(int devicename)
 {
 	int i = TempleFind(devicename, this->devices);
 	try
@@ -63,6 +63,10 @@ Room :: ~Room()
 	{
 		delete this->devices[i];
 	}
+
+}
+int Room::getid()
+{
 
 }
 
