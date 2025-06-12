@@ -3,13 +3,16 @@
 Room::Room()
 {
 }
-Room::Room(MyStr _name, MyVector <Device*> _device):name(_name),devices(_device)
+Room::Room(MyStr _name, MyVector <Device*> _device):name(_name)
 {
+	for (int i = 0; i < _device.size(); i++)
+	{
+		this->devices.push(_device[i]);
+	}
 }
 Room::Room(MyStr _name):name(_name)
 {}
-Room::Room(const Room& other):name(other.name),devices(other.devices)
-{}
+
 void Room::AddDevice(Device* dev)
 {
 	this->devices.push(dev);
@@ -54,3 +57,12 @@ MyStr Room::getname()
 { 
 	return this->name;
 }
+Room :: ~Room()
+{
+	for (int i = 0; i < this->devices.size(); i++)
+	{
+		delete this->devices[i];
+	}
+
+}
+
