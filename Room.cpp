@@ -67,6 +67,7 @@ Room :: ~Room()
 }
 int Room::getid()
 {
-
+	return this->id;
 }
+
 
