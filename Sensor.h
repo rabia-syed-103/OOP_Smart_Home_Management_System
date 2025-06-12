@@ -5,7 +5,7 @@ class Sensor :public Device
 {
 public:
 	Sensor();
-	Sensor(MyStr _name, bool _isON);
+	Sensor(int _id,MyStr _name, bool _isON);
 	Sensor(const Sensor& other);
 	Sensor& operator=(const Sensor& other);
 	void turnOn() override;
