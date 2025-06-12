@@ -27,3 +27,6 @@ bool AdultUser::CanToggleDevice()
 {
 	return true;
 }
+AdultUser:: ~AdultUser()
+{}
+
