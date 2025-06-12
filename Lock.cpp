@@ -3,9 +3,8 @@
 Lock::Lock()
 {
 }
-Lock::Lock(MyStr _name, bool _isON) :Device(_name, _isON)
+Lock::Lock(int _id,MyStr _name, bool _isON) :Device(_id,_name, _isON)
 {
-
 }
 Lock::Lock(const Lock& other) :Device(other)
 {
