@@ -13,5 +13,6 @@ public:
 	AdultUser& operator=(const User& other);
 	bool CanChangeSetting()override;
 	bool CanToggleDevice()override;
+	~AdultUser();
 };
 #endif // !ADULTUSER_H
