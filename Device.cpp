@@ -4,11 +4,11 @@ Device::Device():isOn(false)
 {
 }
 
-Device::Device(MyStr _name, bool _isOn):name(_name),isOn(_isOn)
+Device::Device(int _id,MyStr _name, bool _isOn):id(id),name(_name),isOn(_isOn)
 {
 }
 
-Device::Device(const Device& other):name(other.name),isOn(other.isOn)
+Device::Device(const Device& other):id(other.id),name(other.name),isOn(other.isOn)
 {
 }
 
@@ -16,6 +16,7 @@ Device& Device::operator=(const Device& other)
 {
 	if (this != &other)
 	{
+		this->id = other.id;
 		this->name = other.name;
 		this->isOn = other.isOn;
 	}
