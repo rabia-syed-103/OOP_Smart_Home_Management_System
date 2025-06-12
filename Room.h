@@ -12,12 +12,13 @@ public:
 	Room();
 	Room(MyStr _name, MyVector <Device*> _device);
 	Room(MyStr _name);
-	Room(const Room& other);
+	Room(const Room& other) = delete;
 	void AddDevice(Device* dev);
 	void RemoveDevice(Device* dev);
 	bool ToggleDevice(MyStr devicename,bool toggle);
 	bool UpdateDeviceSetting(MyStr devicename);
 	MyStr getname();
+	~Room();
 
 };
 #endif // !ROOM_H
