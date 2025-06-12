@@ -3,7 +3,7 @@
 AC::AC():temp(0),mode('\0')
 {
 }
-AC::AC(MyStr _name, bool _isON):Device(_name,_isON),temp(0), mode('\0')
+AC::AC(int _id,MyStr _name, bool _isON):Device(_id,_name,_isON),temp(0), mode('\0')
 {
 
 }
@@ -53,3 +53,5 @@ void AC::SetSetting()
 	}
 
 }
+AC:: ~AC()
+{}
