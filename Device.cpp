@@ -1,10 +1,10 @@
 #include "Device.h"
 
-Device::Device():isOn(false)
+Device::Device():id('\0'),isOn(false)
 {
 }
 
-Device::Device(int _id,MyStr _name, bool _isOn):id(id),name(_name),isOn(_isOn)
+Device::Device(int _id,MyStr _name, bool _isOn):id(_id),name(_name),isOn(_isOn)
 {
 }
 
