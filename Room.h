@@ -6,18 +6,20 @@
 #include "TemplateFind.h"
 class Room
 {
+	int id;
 	MyStr name;
 	MyVector <Device*> devices;
 public:
 	Room();
-	Room(MyStr _name, MyVector <Device*> _device);
-	Room(MyStr _name);
+	Room(int _id,MyStr _name, MyVector <Device*> _device);
+	Room(int _id,MyStr _name);
 	Room(const Room& other) = delete;
 	void AddDevice(Device* dev);
 	void RemoveDevice(Device* dev);
-	bool ToggleDevice(MyStr devicename,bool toggle);
-	bool UpdateDeviceSetting(MyStr devicename);
+	bool ToggleDevice(int deviceid,bool toggle);
+	bool UpdateDeviceSetting(int devicename);
 	MyStr getname();
+	int getid();
 	~Room();
 
 };
