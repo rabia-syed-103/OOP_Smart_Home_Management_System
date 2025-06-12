@@ -7,7 +7,7 @@ class Light :public Device
 	
 public:
 	Light();
-	Light(MyStr _name, bool _isON);
+	Light(int _id,MyStr _name, bool _isON);
 	Light(const Light& other);
 	Light& operator=(const Light& other);
 	void turnOn() override;
