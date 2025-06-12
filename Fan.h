@@ -7,7 +7,7 @@ class Fan :public Device
 
 public:
 	Fan();
-	Fan(MyStr _name, bool _isON);
+	Fan(int _id,MyStr _name, bool _isON);
 	Fan(const Fan& other);
 	Fan& operator=(const Fan& other);
 	void turnOn() override;
