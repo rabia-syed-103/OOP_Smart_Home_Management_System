@@ -3,7 +3,7 @@
 Sensor::Sensor()
 {
 }
-Sensor::Sensor(MyStr _name, bool _isON) :Device(_name, _isON)
+Sensor::Sensor(int _id,MyStr _name, bool _isON) :Device(_id,_name, _isON)
 {
 
 }
