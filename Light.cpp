@@ -3,7 +3,7 @@
 Light::Light():brightness(0)
 {
 }
-Light::Light(MyStr _name, bool _isON) :Device(_name, _isON),brightness(0)
+Light::Light(int _id,MyStr _name, bool _isON) :Device(_id,_name, _isON),brightness(0)
 {
 
 }
@@ -35,3 +35,4 @@ void Light::SetSetting()
 	cout << "Enter Brightness :: ";
 	cin >> this->brightness;
 }
+
