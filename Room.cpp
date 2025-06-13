@@ -1,6 +1,7 @@
 #include "Room.h"
+#include <fstream>
 
-Room::Room()
+Room::Room():id('\0')
 {
 }
 Room::Room(int _id,MyStr _name, MyVector <Device*> _device):name(_name),id(_id)
@@ -25,25 +26,35 @@ void Room::RemoveDevice(Device* dev)
 }
 bool Room::ToggleDevice(int deviceid, bool toggle)
 {
-	int i = TempleFind(deviceid, this->devices);
-	if (toggle == 1)
+	try
 	{
-		this->devices[i]->turnOn();
-		return 1;
+		int i = TempleFind(deviceid, this->devices);
+		if (toggle == 1)
+		{
+			this->devices[i]->turnOn();
+			
+			return 1;
+
+		}
+		else
+		{
+			this->devices[i]->turnOff();
+		
+			return 0;
+		}
 	}
-	else
+	catch (const MyStr error)
 	{
-		this->devices[i]->turnOff();
-		return 1;
+		throw;
 	}
 	return 0;
 
 }
 bool Room::UpdateDeviceSetting(int devicename)
 {
-	int i = TempleFind(devicename, this->devices);
-	try
+	try 
 	{
+		int i = TempleFind(devicename, this->devices);	
 		this->devices[i]->SetSetting();
 	}
 	catch (const MyStr error_mess)
@@ -65,9 +76,53 @@ Room :: ~Room()
 	}
 
 }
+void Room::serialize(fstream& f)
+{
+	f.write((char*)&id, sizeof(id));
+	const char* newname = this->name.c_str();
+	int len = this->name.get_length(newname);
+	f.write((char*)&len, sizeof(len));
+	f.write(newname, len);
+	for (int i = 0; i < this->devices.size(); i++)
+	{
+		this->devices[i]->serialize(f);
+	}
+
+}
+void Room::deserialize(fstream& f)
+{
+	f.read((char*)&id, sizeof(id));
+	int len;
+	f.read((char*)&len, sizeof(len));
+	char* newname = new char[len + 1];
+	f.read(newname, len);
+	newname[len] = '\0';
+	this->name.cpy(newname);
+	for (int i = 0; i < this->devices.size(); i++)
+	{
+		this->devices[i]->deserialize(f);
+	}
+
+}
 int Room::getid()
 {
 	return this->id;
+}
+
+void Room::RoomEnergyUpdate(int deviceid)
+{
+	int i = TempleFind(deviceid, this->devices);
+
+	try
+	{
+		this->devices[i]->EnergyUsed();
+	}
+	catch (const MyStr& update)
+	{
+		MyStr newupdate = "Room Name : ";
+		newupdate = newupdate.append(this->getname()).append(update);
+		throw MyStr(newupdate);
+	}
 }
 
 
