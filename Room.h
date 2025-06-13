@@ -20,7 +20,9 @@ public:
 	bool UpdateDeviceSetting(int devicename);
 	MyStr getname();
 	int getid();
+	void RoomEnergyUpdate(int deviceid);
 	~Room();
-
+	void serialize(fstream& f);
+	void deserialize(fstream& f);
 };
 #endif // !ROOM_H
