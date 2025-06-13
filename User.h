@@ -13,5 +13,7 @@ public:
 	virtual bool CanChangeSetting() = 0;
 	virtual bool CanToggleDevice() = 0;
 	MyStr getname();
+	void serialize(fstream& f);
+	void deserialize(fstream& f);
 };
 #endif // !USER_H
