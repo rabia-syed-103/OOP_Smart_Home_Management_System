@@ -13,5 +13,8 @@ public:
 	ChildUser& operator=(const User& other);
 	bool CanChangeSetting()override;
 	bool CanToggleDevice()override;
+	~ChildUser();
+	void Display()override;
+	bool AddDevice()override;
 };
 #endif // !CHILDUSER_H
