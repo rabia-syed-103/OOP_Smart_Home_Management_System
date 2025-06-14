@@ -9,7 +9,7 @@ using namespace std;
 class EnergyMonitor {
 private:
 
-    ofstream logfile;
+    fstream logfile;
 
 public:
 
@@ -17,6 +17,8 @@ public:
     void initialize(const MyStr& filename);
     void cleanup();
     void writeUpdate(const MyStr& error_message);
+    ~EnergyMonitor();
 
+    void PrintEnergyMonitor();
 };
 #endif // !EVENTLOGGER_H
