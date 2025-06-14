@@ -13,5 +13,9 @@ public:
 	GuestUser& operator=(const User& other);
 	bool CanChangeSetting()override;
 	bool CanToggleDevice()override;
+	~GuestUser();
+	void Display()override;
+	bool AddDevice()override;
+
 };
 #endif // !GUESTUSER_H
