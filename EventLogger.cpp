@@ -35,3 +35,22 @@ void EventLogger::writeMessage(const MyStr& message) {
     logfile << "Event Time :: " << timeStr;
     logfile << "Event :: " << message << endl;
 }
+
+void EventLogger::PrintLog()
+{
+    logfile.seekg(0);
+    cout << "\nAll Event Updates\n\n";
+
+    MyStr message;
+
+    while (logfile >> message) 
+    {
+ 
+        cout << message << ' ';
+    }
+}
+
+EventLogger::~EventLogger()
+{
+
+}
