@@ -20,13 +20,28 @@ ChildUser& ChildUser::operator=(const User& other)
 
 bool ChildUser::CanChangeSetting()
 {
-	throw MyStr("\nWARNING!\nChild Cannot Change Setting.");
+	throw MyStr("\nWARNING!\nChild Cannot Change Setting.\n");
 	return false;
 }
 
 bool ChildUser::CanToggleDevice()
 {
-	throw MyStr("\nWARNING!\nChild Cannot Toggle Device.");
+	throw MyStr("\nWARNING!\nChild Cannot Toggle.\n");
+
 
 	return false;
+}
+
+ChildUser::~ChildUser()
+{
+}
+
+void ChildUser::Display()
+{
+	this->print();
+}
+
+bool ChildUser::AddDevice()
+{
+	throw MyStr("Child Cannot Add Device!");
 }
