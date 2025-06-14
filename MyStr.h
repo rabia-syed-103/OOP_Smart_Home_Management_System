@@ -32,7 +32,7 @@ public:
 
 	//Print()
 	void Print();
-
+	const char* c_str() const;
 	//Insert
 	void regrow_double(MyStr& str);
 	void insert_at(int i, char ch);
