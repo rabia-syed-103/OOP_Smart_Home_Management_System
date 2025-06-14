@@ -20,6 +20,7 @@ AdultUser& AdultUser::operator=(const User& other)
 
 bool AdultUser::CanChangeSetting()
 {
+
 	return true;
 }
 
@@ -29,4 +30,15 @@ bool AdultUser::CanToggleDevice()
 }
 AdultUser:: ~AdultUser()
 {}
+
+void AdultUser::Display()
+{
+	this->print();
+}
+
+bool AdultUser::AddDevice()
+{
+	return true;
+}
+
 
