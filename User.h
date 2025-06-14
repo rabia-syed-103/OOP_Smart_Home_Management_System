@@ -15,5 +15,10 @@ public:
 	MyStr getname();
 	void serialize(fstream& f);
 	void deserialize(fstream& f);
+	virtual ~User();
+	virtual void Display();
+	void print();
+	virtual bool AddDevice();
+
 };
 #endif // !USER_H
