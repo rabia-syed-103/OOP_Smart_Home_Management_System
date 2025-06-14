@@ -10,8 +10,13 @@ public:
 	Light(int _id,MyStr _name, bool _isON);
 	Light(const Light& other);
 	Light& operator=(const Light& other);
-	void turnOn() override;
-	void turnOff() override;
+	void turnOn() ;
+	void turnOff();
 	void SetSetting() override;
+	void EnergyUsed()override;
+	void serialize(fstream& f)override;
+	void deserialize(fstream& f)override;
+	~Light();
+	void Display()override;
 };
 #endif // !LIGHT_H
