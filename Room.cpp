@@ -20,8 +20,16 @@ void Room::AddDevice(Device* dev)
 }
 void Room::RemoveDevice(Device* dev)
 {
-	int i = this->devices.find(dev);
-	this->devices.delete_at(i);
+	try
+	{
+		int i = this->devices.find(dev);
+		this->devices[i]->RemoveDevice();
+		this->devices.delete_at(i);
+	}
+	catch (const MyStr& error)
+	{
+		throw;
+	}
 
 }
 bool Room::ToggleDevice(int deviceid, bool toggle)
@@ -104,6 +112,25 @@ void Room::deserialize(fstream& f)
 	}
 
 }
+void Room::Display()
+{
+	cout << "Room Name :: " << this->name;
+	cout << "\nDevice Details ::\n";
+	for (int i = 0; i < this->devices.size(); i++)
+	{
+		this->devices[i]->Display();
+	}
+	cout << endl;
+}
+Device* Room::getdevice(int i)
+{
+	for (int j = 0; j < this->devices.size(); j++)
+	{
+		if(this->devices[i]->getid() == i)
+			return this->devices[j];
+
+	}
+}
 int Room::getid()
 {
 	return this->id;
@@ -124,5 +151,6 @@ void Room::RoomEnergyUpdate(int deviceid)
 		throw MyStr(newupdate);
 	}
 }
+
 
 
