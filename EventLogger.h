@@ -9,7 +9,7 @@ using namespace std;
 class EventLogger {
 private:
     
-    ofstream logfile;
+    fstream logfile;
   
 public:
 
@@ -18,6 +18,8 @@ public:
     void cleanup();
     void writeError(const MyStr& error_message); 
     void writeMessage(const MyStr& message);
+    void PrintLog();
+    ~EventLogger();
 
 };
 #endif // !EVENTLOGGER_H
