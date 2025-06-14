@@ -596,6 +596,10 @@ void MyStr::remove_at(int i)
 	*this = temp;
 
 }
+const char* MyStr:: c_str() const 
+{ 
+	return Cs;
+}
 //All Removals
 void MyStr::remove_first(char ch)
 {
