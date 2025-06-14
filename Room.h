@@ -24,5 +24,8 @@ public:
 	~Room();
 	void serialize(fstream& f);
 	void deserialize(fstream& f);
+	void Display();
+	Device* getdevice(int i);
 };
 #endif // !ROOM_H
+
