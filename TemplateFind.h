@@ -5,7 +5,21 @@
 
 template <typename T>
 
-int T(MyStr obj, MyVector <T*>& list)
+int TempleFind(int obj, MyVector <T*>& list)
+{
+	for (int i = 0; i < list.size(); i++)
+	{
+		if (obj == list[i]->getid())
+		{
+			return i;
+		}
+	}
+	//cout << obj;
+	throw MyStr("\n!Not Found!");
+}
+template <typename T>
+
+int TempleFindbyName(MyStr obj, MyVector <T*>& list)
 {
 	for (int i = 0; i < list.size(); i++)
 	{
@@ -14,7 +28,9 @@ int T(MyStr obj, MyVector <T*>& list)
 			return i;
 		}
 	}
-	return -1;
+	//cout << obj;
+	throw MyStr("\n!Not Found!");
+
 }
 
 #endif // !TEMPLATEFIND_H
