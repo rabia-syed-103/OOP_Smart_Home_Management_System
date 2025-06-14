@@ -28,3 +28,18 @@ bool GuestUser::CanToggleDevice()
 {
 	return true;
 }
+
+GuestUser::~GuestUser()
+{
+}
+
+void GuestUser::Display()
+{
+	this->print();
+}
+
+bool GuestUser::AddDevice()
+{
+	throw MyStr("Guest Cannot Add Device!");
+}
+
