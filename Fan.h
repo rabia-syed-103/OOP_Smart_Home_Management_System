@@ -10,8 +10,13 @@ public:
 	Fan(int _id,MyStr _name, bool _isON);
 	Fan(const Fan& other);
 	Fan& operator=(const Fan& other);
-	void turnOn() override;
-	void turnOff() override;
+	void turnOn();
+	void turnOff();
 	void SetSetting() override;
+	void EnergyUsed()override;
+	void serialize(fstream& f)override;
+	void deserialize(fstream& f)override;
+	~Fan();
+	void Display()override;
 };
 #endif // !FAN_H
