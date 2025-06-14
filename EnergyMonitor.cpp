@@ -27,3 +27,20 @@ void EnergyMonitor::writeUpdate(const MyStr& error_message) {
     logfile << "Update Time :: " << timeStr;
     logfile << "Update :: " << error_message << endl;
 }
+
+EnergyMonitor::~EnergyMonitor()
+{
+}
+
+void EnergyMonitor::PrintEnergyMonitor()
+{
+    cout << "\nAll Energy Updates\n\n";
+    logfile.seekg(0);
+    MyStr message;
+
+    while (logfile >> message)
+    {
+
+        cout << message << ' ';
+    }
+}
