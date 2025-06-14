@@ -42,3 +42,22 @@ void User::deserialize(fstream& f)
 	
 }
 
+User::~User()
+{
+}
+
+void User::Display()
+{
+}
+
+void User::print()
+{
+	cout << "Username :: " << this->name<<endl;
+}
+
+bool User::AddDevice()
+{
+	return true;
+}
+
+
