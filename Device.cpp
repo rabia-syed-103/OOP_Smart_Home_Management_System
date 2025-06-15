@@ -150,9 +150,3 @@ void Device::setPower(float pow)
 	this->powerRating = pow;
 }
 
-
-
-void Device::setPower(float pow)
-{
-	this->powerRating = pow;
-}
