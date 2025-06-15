@@ -45,3 +45,4 @@ bool ChildUser::AddDevice()
 {
 	throw MyStr("Child Cannot Add Device!");
 }
+
