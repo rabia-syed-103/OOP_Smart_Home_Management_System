@@ -16,7 +16,15 @@ Room::Room(int _id,MyStr _name):name(_name),id(_id)
 
 void Room::AddDevice(Device* dev)
 {
-	this->devices.push(dev);
+	try
+	{
+		CheckFind(dev->getid(), this->devices);
+		this->devices.push(dev);
+	}
+	catch (const MyStr& error)
+	{
+		throw error;
+	}
 }
 void Room::RemoveDevice(Device* dev)
 {
@@ -151,6 +159,7 @@ void Room::RoomEnergyUpdate(int deviceid)
 		throw MyStr(newupdate);
 	}
 }
+
 
 
 
