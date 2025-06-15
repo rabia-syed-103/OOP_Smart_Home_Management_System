@@ -32,5 +32,19 @@ int TempleFindbyName(MyStr obj, MyVector <T*>& list)
 	throw MyStr("\n!Not Found!");
 
 }
+template <typename T>
+
+int CheckFind(int obj, MyVector <T*>& list)
+{
+	for (int i = 0; i < list.size(); i++)
+	{
+		if (obj == list[i]->getid())
+		{
+			throw MyStr("\nID already Exists\n");
+		}
+	}
+	//cout << obj;
+	return 1;
+}
 
 #endif // !TEMPLATEFIND_H
