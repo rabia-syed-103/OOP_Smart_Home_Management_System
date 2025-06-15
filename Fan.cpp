@@ -2,6 +2,7 @@
 #include <fstream>
 Fan::Fan() :speed(1)
 {
+	this->setPower(10);
 }
 Fan::Fan(int _id,MyStr _name, bool _isON) :Device(_id,_name, _isON,10), speed(1)
 {
