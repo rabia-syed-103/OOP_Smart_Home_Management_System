@@ -43,12 +43,11 @@ int ID(Home* myHome)
 }
 int main()
 {
-	fstream info("Info.txt", ios::in | ios::out | ios::app);  
 
 	
 	Home* myHome = Home::getinstance("MyHome", "Event.txt", "Energy.txt");
 	Sensor* sensor = new Sensor(1, "Fire Sensor");
-	myHome->AddRoom(new Room(001, "Kitchen"));
+	myHome->AddRoom(new Room(1, "Kitchen"));
 	User* mainuser = new AdultUser("Ali");
 	myHome->AddUser(mainuser);
 	myHome->AddDeviceToRoom(001, sensor, "Ali");
@@ -64,7 +63,9 @@ int main()
 		cout << "7. Trigger Sensor\n";
 		cout << "8. Print Event Log\n";
 		cout << "9. Print Energy Log\n";
-		cout << "10. Exit\n";
+		cout << "10. Print All Information of Home Using Serialize&Deserialize\n";
+		cout << "11. Exit() \n";
+
 		cout << "Enter choice: ";
 		cin >> choice;
 		switch (choice)
@@ -205,16 +206,33 @@ int main()
 		}
 		case 10:
 		{
+			{
+				fstream info("filename.bin", ios::out | ios::binary);
+				myHome->serialize(info);
+				info.close();
+			}
+			{
+				fstream info("filename.bin", ios::in | ios::binary);
+				myHome->deserialize(info);
+				info.close();
+			}
+			myHome->Display();
+			break;
+		}
+		case 11:
+		{
 			cout << "\nExiting will delete all the files since Home Owns them! If you still want to exit press 'e'\n";
 			char exit;
 			cin >> exit;
 			if(exit == 'e')
 				break;
 		}
+
 		default:
 		{
-			myHome->serialize(info);
+			
 			cout << "\nInvalid Choice!";
+			break;
 		}
 		}
 
