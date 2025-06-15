@@ -2,6 +2,7 @@
 #include <fstream>
 Light::Light():brightness(1)
 {
+	this->setPower(5);
 }
 Light::Light(int _id,MyStr _name, bool _isON) :Device(_id,_name, _isON,5),brightness(1)
 {
@@ -78,4 +79,3 @@ void Light::Display()
 	cout << endl << endl;
 
 }
-
