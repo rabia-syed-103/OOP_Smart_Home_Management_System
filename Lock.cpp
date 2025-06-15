@@ -2,6 +2,7 @@
 #include <fstream>
 Lock::Lock()
 {
+	this->setPower(3);
 	cout << "Set Password :: ";
 	cin >> this->password;
 }
