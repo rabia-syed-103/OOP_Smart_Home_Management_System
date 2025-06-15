@@ -26,10 +26,20 @@ void Home::AddUser(User* _user)
 
 void Home::AddRoom(Room* _room)
 {
-	this->rooms.push(_room);
-	MyStr name = _room->getname();
-	MyStr mess = name.append(" Added to Home!");
-	this->eventlog.writeMessage(mess);
+	try
+	{
+		CheckFind(_room->getid(), this->rooms);
+		this->rooms.push(_room);
+		MyStr name = _room->getname();
+		MyStr mess = name.append(" Added to Home!");
+		this->eventlog.writeMessage(mess);
+		cout << mess;
+	}
+	catch (const MyStr& error)
+	{
+		cout << error;
+		this->eventlog.writeError(error);
+	}
 
 }
 
@@ -179,6 +189,7 @@ void Home::serialize(fstream& f)
 
 void Home::deserialize(fstream& f)
 {
+	f.seekg(0);
 	int len = 0;
 	f.read((char*)&len, sizeof(len));
 	char* newname = new char[len + 1];
@@ -248,4 +259,3 @@ void Home::Clear()
 	this->energylog.cleanup();
 	this->eventlog.cleanup();
 }
-
