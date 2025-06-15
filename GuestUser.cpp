@@ -43,3 +43,4 @@ bool GuestUser::AddDevice()
 	throw MyStr("Guest Cannot Add Device!");
 }
 
+
