@@ -2,6 +2,7 @@
 #include <fstream>
 AC::AC():temp(16), mode('C')
 {
+	this->setPower(15);
 }
 AC::AC(int _id,MyStr _name, bool _isON):Device(_id,_name,_isON,15),temp(16), mode('C')
 {
