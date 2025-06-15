@@ -224,8 +224,9 @@ int main()
 			cout << "\nExiting will delete all the files since Home Owns them! If you still want to exit press 'e'\n";
 			char exit;
 			cin >> exit;
-			if(exit == 'e')
-				break;
+			if (exit == 'e')
+				return 0;
+			break;
 		}
 
 		default:
