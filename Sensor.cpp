@@ -2,7 +2,7 @@
 
 Sensor::Sensor()
 {
-
+	this->setPower(20);
 }
 
 Sensor::Sensor(int _id,MyStr _name) :Device(_id,_name, true,20)
