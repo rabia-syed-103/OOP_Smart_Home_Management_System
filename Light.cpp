@@ -78,3 +78,4 @@ void Light::Display()
 	cout << endl << endl;
 
 }
+
