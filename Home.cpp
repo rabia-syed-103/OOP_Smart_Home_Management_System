@@ -50,6 +50,8 @@ void Home::roomidprints()
 	{
 		cout << this->rooms[i]->getid()<<" ";
 	}
+	cout << endl;
+
 }
 
 void Home::useridprints()
@@ -59,6 +61,7 @@ void Home::useridprints()
 	{
 		cout << this->users[i]->getname() << " ";
 	}
+	cout << endl;
 }
 
 void Home::AddDeviceToRoom(int _roomid, Device* _device, MyStr _username)
@@ -259,5 +262,4 @@ void Home::Clear()
 	this->energylog.cleanup();
 	this->eventlog.cleanup();
 }
-
 
