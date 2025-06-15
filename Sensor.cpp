@@ -79,3 +79,4 @@ void Sensor:: detectEvent() {
 	throw MyStr (message);	
 }
 
+
