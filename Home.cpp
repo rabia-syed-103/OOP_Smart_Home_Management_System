@@ -259,3 +259,5 @@ void Home::Clear()
 	this->energylog.cleanup();
 	this->eventlog.cleanup();
 }
+
+
